@@ -1,15 +1,85 @@
 .home-container {
-    padding: 2rem;
+    padding: 2rem 1rem;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 3rem;
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 0;
+    gap: 2rem;
+    margin-bottom: 4rem;
 }
 
+.hero-content {
+    flex: 1;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--gray);
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--secondary);
+    color: white;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.hero-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    max-height: 400px;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+}
+
+.section-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Books Grid */
 .books-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -18,47 +88,124 @@ h1 {
 
 .book-card {
     background: white;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     color: inherit;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .book-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .book-cover {
     width: 100%;
     height: 350px;
     overflow: hidden;
+    position: relative;
 }
 
 .book-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.book-card:hover .book-cover img {
+    transform: scale(1.05);
 }
 
 .book-info {
-    padding: 1rem;
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .book-info h3 {
     margin: 0;
-    color: #2c3e50;
+    color: var(--primary);
     font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 .book-info .author {
-    color: #7f8c8d;
+    color: var(--secondary);
     margin: 0.5rem 0;
+    font-weight: 500;
 }
 
 .book-info .year {
-    color: #95a5a6;
+    color: var(--gray);
     margin: 0;
     font-size: 0.9rem;
+    margin-top: auto;
+}
+
+.book-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.book-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+    color: var(--accent);
+}
+
+.view-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.view-more-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    font-weight: 600;
+    border-radius: 50px;
+    transition: var(--transition);
+}
+
+.view-more-btn:hover {
+    background-color: var(--secondary);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
 }

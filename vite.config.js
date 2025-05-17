@@ -1,10 +1,15 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+// Remove tailwindcss import
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(),
-    tailwindcss(),
+  plugins: [
+    react(),
+    // Remove tailwindcss plugin
   ],
+  // Add resolve for potential file extension issues
+  resolve: {
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  }
 })

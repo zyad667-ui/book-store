@@ -1,6 +1,6 @@
 .book-detail-container {
     min-height: 100vh;
-    padding: 2rem;
+    padding: 2rem 1rem;
     background-color: #f5f6fa;
 }
 
@@ -8,19 +8,22 @@
     max-width: 1200px;
     margin: 0 auto;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-    padding: 2rem;
+    gap: 3rem;
+    padding: 3rem;
+    overflow: hidden;
 }
 
 .book-detail-cover {
-    width: 100%;
-    height: 500px;
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    border-radius: 12px;
     overflow: hidden;
-    border-radius: 5px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .book-detail-cover img {
@@ -30,64 +33,168 @@
 }
 
 .book-detail-info {
-    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.book-detail-header {
+    margin-bottom: 2rem;
 }
 
 .book-detail-info h1 {
-    color: #2c3e50;
+    color: var(--primary);
     margin: 0 0 1rem 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .book-meta {
     margin-bottom: 2rem;
 }
 
-.book-meta p {
-    margin: 0.5rem 0;
-    color: #7f8c8d;
+.meta-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: var(--gray);
+}
+
+.meta-icon {
+    margin-right: 0.5rem;
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+.meta-label {
+    font-weight: 600;
+    color: var(--primary);
+    margin-right: 0.5rem;
+}
+
+.book-synopsis {
+    margin-bottom: 2rem;
 }
 
 .book-synopsis h2 {
-    color: #2c3e50;
+    color: var(--primary);
     margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
 .book-synopsis p {
-    line-height: 1.6;
-    color: #34495e;
+    line-height: 1.8;
+    color: var(--dark);
+    font-size: 1.1rem;
+}
+
+.book-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
 }
 
 .back-btn {
-    margin-top: 2rem;
-    padding: 0.8rem 1.5rem;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
 }
 
 .back-btn:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.borrow-btn {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.borrow-btn:hover {
     background-color: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
+}
+
+.save-btn {
+    background-color: white;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.save-btn:hover {
+    background-color: var(--accent);
+    color: white;
 }
 
 .loading {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 70vh;
     font-size: 1.2rem;
-    color: #2c3e50;
+    color: var(--primary);
 }
 
-@media (max-width: 768px) {
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: var(--secondary);
+    animation: spin 1s linear infinite;
+    margin-right: 1rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.related-books {
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    padding: 0 1rem;
+}
+
+.related-books h2 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.related-books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
     .book-detail-content {
         grid-template-columns: 1fr;
+        padding: 2rem;
     }
 
     .book-detail-cover {
-        height: 400px;
+        min-height: 400px;
     }
 }

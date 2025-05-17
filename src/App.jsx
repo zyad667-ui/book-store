@@ -1,11 +1,11 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './components/Home';
 import Login from './components/Login';
 import Admin from './components/Admin';
 import BookDetail from './components/BookDetail';
-import "./app.css";
+import "./App.css"; // Fixed case sensitivity
 
 // Fonction pour vérifier si l'utilisateur est admin
 const isAdmin = () => {
@@ -43,29 +43,25 @@ const App = () => {
   }, []);
 
   return (
-    <Router>
-      <div className="app">
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/book/:id" element={<BookDetail />} />
-            <Route
-              path="/admin"
-              element={
-                <ProtectedAdminRoute>
-                  <Admin />
-                </ProtectedAdminRoute>
-              }
-            />
-          </Routes>
-        </main>
-      </div>
-    </Router>
+    <div className="app">
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/book/:id" element={<BookDetail />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedAdminRoute>
+                <Admin />
+              </ProtectedAdminRoute>
+            }
+          />
+        </Routes>
+      </main>
+    </div>
   );
 };
 
 export default App;
-
-
