@@ -24,10 +24,9 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Générer un code à 4 chiffres
         const code = Math.floor(1000 + Math.random() * 9000).toString();
         setGeneratedCode(code);
-        // Dans un vrai projet, ce code serait envoyé par email
+
         alert(`Votre code de vérification est : ${code}`);
         setShowVerification(true);
     };
@@ -35,13 +34,21 @@ const Login = () => {
     const handleVerification = (e) => {
         e.preventDefault();
         if (verificationCode === generatedCode) {
-            // Enregistrer l'utilisateur
-            const users = JSON.parse(localStorage.getItem('users') || '[]');
-            users.push({
+            
+            const userId = Date.now().toString();
+            const newUser = {
+                id: userId,
                 ...formData,
                 role: 'user'
-            });
+            };
+
+        
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            users.push(newUser);
             localStorage.setItem('users', JSON.stringify(users));
+
+            localStorage.setItem('currentUser', JSON.stringify(newUser));
+
             alert('Compte créé avec succès !');
             navigate('/');
         } else {
@@ -116,4 +123,4 @@ const Login = () => {
     );
 };
 
-export default Login; 
+export default Login;
