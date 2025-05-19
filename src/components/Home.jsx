@@ -33,7 +33,6 @@ const Home = () => {
         return () => clearTimeout(timer);
     }, []);
 
-    // If there are no books, add some sample data
     useEffect(() => {
         if (!loading && books.length === 0) {
             const sampleBooks = [
@@ -45,7 +44,7 @@ const Home = () => {
                     category: "Fiction",
                     rating: 4.8,
                     synopsis: "Un aviateur, échoué dans le désert du Sahara, rencontre un petit prince venu d'une autre planète. Ce conte poétique et philosophique aborde les thèmes de l'amitié, de l'amour et du sens de la vie.",
-                    coverUrl: "https://i5.walmartimages.com/seo/Le-Petit-Prince-French-Edition-Pre-Owned-Hardcover-0152164154-9780152164157-Antoine-de-Saint-Exupry_0028025a-d2fd-4a9b-8054-fdd89799de36.b41821fd7ee7d75ac4e0f3e298445792.jpeghttps://i5.walmartimages.com/seo/Le-Petit-Prince-French-Edition-Pre-Owned-Hardcover-0152164154-9780152164157-Antoine-de-Saint-Exupry_0028025a-d2fd-4a9b-8054-fdd89799de36.b41821fd7ee7d75ac4e0f3e298445792.jpeg",
+                    coverUrl: "https://i5.walmartimages.com/seo/Le-Petit-Prince-French-Edition-Pre-Owned-Hardcover-0152164154-9780152164157-Antoine-de-Saint-Exupry_0028025a-d2fd-4a9b-8054-fdd89799de36.b41821fd7ee7d75ac4e0f3e298445792.jpeg",
                     isbn: "978-2070612758"
                 },
                 {
@@ -56,7 +55,7 @@ const Home = () => {
                     category: "Classique",
                     rating: 4.6,
                     synopsis: "Dans le Paris médiéval du XVe siècle, Quasimodo, le bossu de Notre-Dame, s'éprend de la belle bohémienne Esmeralda. Une histoire tragique d'amour impossible.",
-                    coverUrl: "https://i5.walmartimages.com/seo/Le-Petit-Prince-French-Edition-Pre-Owned-Hardcover-0152164154-9780152164157-Antoine-de-Saint-Exupry_0028025a-d2fd-4a9b-8054-fdd89799de36.b41821fd7ee7d75ac4e0f3e298445792.jpeg",
+                    coverUrl: "https://librairiedefrance.ma/wp-content/webp-express/webp-images/uploads/2022/03/9782253009689-475x500-1.jpg.webp",
                     isbn: "978-2253096337"
                 },
                 {
